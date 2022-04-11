@@ -58,6 +58,7 @@ class _NotesScreenState extends State<NotesScreen> {
                             children: [
                               GestureDetector(
                                   onTap: () {
+                                    notesStore.selectedNoteIndex = index;
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                           builder: (context) => Provider.value(
@@ -66,7 +67,7 @@ class _NotesScreenState extends State<NotesScreen> {
                                     );
                                   },
                                   child: const Icon(Icons.edit)),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               GestureDetector(

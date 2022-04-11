@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:notes_app_using_sqflite/notes_app/store/notes_store.dart';
 import 'package:provider/provider.dart';
 
@@ -16,21 +17,27 @@ class AddNotes extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextField(
-            controller: notesStore.titleController,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: "Please enter title",
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: TextField(
+              controller: notesStore.titleController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Please enter title",
+              ),
             ),
           ),
           const SizedBox(
             height: 10,
           ),
-          TextField(
-            controller: notesStore.descriptionController,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: "Please enter description",
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: TextField(
+              controller: notesStore.descriptionController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Please enter description",
+              ),
             ),
           ),
           const SizedBox(
@@ -38,8 +45,16 @@ class AddNotes extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: () async {
-                await notesStore.addNotes();
-                Navigator.pop(context);
+                if (notesStore.titleController.text.trim().isNotEmpty &&
+                    notesStore.descriptionController.text.trim().isNotEmpty) {
+                  await notesStore.addNotes();
+                  Navigator.pop(context);
+                } else {
+                  Fluttertoast.showToast(
+                      msg: 'Please add the details',
+                      backgroundColor: Colors.black,
+                      textColor: Colors.white);
+                }
               },
               child: const Text("Add Data"))
         ],

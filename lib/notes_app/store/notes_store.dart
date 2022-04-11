@@ -48,6 +48,7 @@ abstract class _NotesStore with Store {
   ///To read notes
   @action
   Future<void> showNotes() async {
+    notesList.clear();
     loading = true;
     final value = await notesSqlDbRepository.readAllNotes();
     notesList.addAll(value);
@@ -64,7 +65,6 @@ abstract class _NotesStore with Store {
       description: updatedDesc == '' ? notes.description : updatedDesc,
     );
     await notesSqlDbRepository.updateNotes(notesModel);
-    notesList.clear();
     showNotes();
   }
 

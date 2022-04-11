@@ -15,24 +15,30 @@ class EditNotes extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextFormField(
-            initialValue:
-                notesStore.notesList[notesStore.selectedNoteIndex].title,
-            onChanged: (val) {
-              notesStore.updatedTitle = val;
-            },
-            decoration: const InputDecoration(border: OutlineInputBorder()),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: TextFormField(
+              initialValue:
+                  notesStore.notesList[notesStore.selectedNoteIndex].title,
+              onChanged: (val) {
+                notesStore.updatedTitle = val;
+              },
+              decoration: const InputDecoration(border: OutlineInputBorder()),
+            ),
           ),
           const SizedBox(
             height: 10,
           ),
-          TextFormField(
-            initialValue:
-                notesStore.notesList[notesStore.selectedNoteIndex].description,
-            onChanged: (val) {
-              notesStore.updatedDesc = val;
-            },
-            decoration: const InputDecoration(border: OutlineInputBorder()),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: TextFormField(
+              initialValue: notesStore
+                  .notesList[notesStore.selectedNoteIndex].description,
+              onChanged: (val) {
+                notesStore.updatedDesc = val;
+              },
+              decoration: const InputDecoration(border: OutlineInputBorder()),
+            ),
           ),
           const SizedBox(
             height: 30,
