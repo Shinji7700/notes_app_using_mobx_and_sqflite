@@ -18,6 +18,7 @@ class EditNotes extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: TextFormField(
+              key: const Key("Updated Title Key"),
               initialValue:
                   notesStore.notesList[notesStore.selectedNoteIndex].title,
               onChanged: (val) {
@@ -32,6 +33,7 @@ class EditNotes extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: TextFormField(
+              key: const Key("Updated Desc Key"),
               initialValue: notesStore
                   .notesList[notesStore.selectedNoteIndex].description,
               onChanged: (val) {

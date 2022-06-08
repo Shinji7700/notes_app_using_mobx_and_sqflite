@@ -20,6 +20,7 @@ class AddNotes extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: TextField(
+              key: const Key("Title Key"),
               controller: notesStore.titleController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
@@ -33,6 +34,7 @@ class AddNotes extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: TextField(
+              key: const Key("Description Key"),
               controller: notesStore.descriptionController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
