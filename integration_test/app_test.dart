@@ -7,10 +7,6 @@ import 'package:notes_app_using_sqflite/notes_app/store/notes_store.dart';
 import 'package:notes_app_using_sqflite/notes_app/widgets/add_notes.dart';
 import 'package:provider/provider.dart';
 
-Future<void> addDelay(int ms) async {
-  await Future<void>.delayed(Duration(milliseconds: ms));
-}
-
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
